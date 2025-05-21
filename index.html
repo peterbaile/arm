@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J696KH33YJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-J696KH33YJ');
+  </script>
+  
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <!-- <meta name="description" content="DESCRIPTION META TAG"> -->
+  <meta property="og:title" content="ARM: Alignment-oriented Retrieval Method"/>
+  <!-- <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/> -->
+  <meta property="og:url" content="https://peterbaile.github.io/arm/"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/images/arm.png" />
+  <!-- <meta property="og:image:width" content="1200"/> -->
+  <!-- <meta property="og:image:height" content="630"/> -->
+
+
+  <meta name="twitter:title" content="ARM: Alignment-oriented Retrieval Method">
+  <!-- <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG"> -->
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/arm.png">
+  <!-- <meta name="twitter:card" content="summary_large_image"> -->
+  <!-- Keywords for your paper to be indexed by-->
+  <!-- <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>ARM: Alignment-oriented Retrieval Method</title>
+  <link rel="icon" type="image/x-icon" href="static/images/arm.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Can we Retrieve Everything All at Once?<br />ARM: An Alignment-Oriented LLM-based Retrieval Method</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+                <span class="author-block">
+                  <a href="https://peterbaile.github.io/" target="_blank">Peter Baile Chen</a><sup>1</sup>,
+                </span>
+
+                <span class="author-block">
+                  <a href="https://yizhang.io/" target="_blank">Yi Zhang</a><sup>2</sup>,
+                </span>
+                
+                  <span class="author-block">
+                    <a href="https://people.csail.mit.edu/michjc/" target="_blank">Michael Cafarella</a><sup>1</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://www.cis.upenn.edu/~danroth/" target="_blank">Dan Roth</a><sup>3</sup>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"><sup>1</sup>MIT, <sup>2</sup>AWS AI</span>, <sup>3</sup>University of Pennsylvania</span>
+                    <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/abs/2501.18539" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="ai ai-arxiv"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/peterbaile/arm" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-widescreen">
+    <div class="column" style="padding:0.25rem;">
+      <h2 class="subtitle">
+        Real-world open-domain questions can be complex, especially when answering them requires integrating information from multiple sources. Effectively identifying the necessary information involves <i>aligning</i> it with the available data and its organization.
+        <br />
+        To address the <i>alignment</i> problem, we introduce the <b><i>alignment-oriented retrieval method</i></b> — ARM, designed to better align questions with the organization of the data collection. Instead of solely matching query utterance, ARM explores <i>relationships</i> among data objects, enabling a retrieve-all-at-once solution for complex queries.
+        <!-- Specifically, our system represents task logs using key-value (KV) caches, encoding the full reasoning context of prior tasks while storing KV caches for only a selected subset of tokens. When a new task arises, LAG retrieves the KV values from relevant logs to augment generation. -->
+        <div class="has-text-centered" style="margin-top: 2rem;">
+          <img src="./static/images/overview.png" style="width: 80%;" />
+        </div>
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- Paper abstract -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <!-- <h2 class="title is-3">Summary</h2> -->
+        <div class="content has-text-justified">
+          <p><b>An optimal retrieval system performs both information and structure alignment</b></p>
+          <ul>
+          <li>
+            Information alignment: In the example above, both Document A and Table D address concepts in the user query and should therefore be retrieved. However, since A and D do not contain overlapping information, they cannot be connected together to form a complete answer to the query.
+          </li>
+          <li>
+            Structure alignment: Tables B and C, although <i>not directly referenced</i> in the user question, are necessary to bridge the connection between A and D, and therefore should also be retrieved.
+          </li>
+          </ul>
+          
+          <p><b>What are existing solutions?</b></p>
+          <ul>
+            <li>Standard RAG with query decomposition: While these methods excel at aligning information, they fall short in capturing structural alignment, as the bridging objects needed may not be explicitly referenced in the user query.</li>
+            <li>
+              React-style agentic systems: These methods iteratively explore semantically relevant information but do not <i>explicitly</i> take into account the available data objects and how they are organized. Additionally, they often lack convergence guarantees, which results in significant inefficiency.
+            </li>
+          </ul>
+          
+          
+          <p><b>What is our solution?</b></p>
+          <ul>
+            <li>
+              We propose <b><i>alignment-oriented method</i></b> that enables an efficient and comprehensive retrieval for complex questions by aligning the question and its decomposition with existing data objects and their organization.
+            </li>
+            <li>
+              Specifically, we evaluate not only the semantic similarity between the query and each object but also the compatibility between objects themselves. Using these scores, we generate multiple alignment drafts that account for both informational and structural alignment, and ultimately select only the objects from these drafts that the model is most confident in.
+            </li>
+            <li>Although this paper focuses on tables and documents, our framework can be readily extended to other modalities (e.g., images), provided that a compatibility score can be computed.</li>
+          </ul>
+
+          <p><b>How does <b><i>ARM</i></b> perform?</b></p>
+          <ul>
+           <li>
+            We evaluated ARM on three complex retrieval tasks involving both passages and tables, and found that it substantially outperforms traditional RAG systems—with or without query decomposition—as well as ReAct-style agent-based frameworks. ARM delivers superior retrieval and downstream performance while also significantly improving efficiency and reducing monetary costs.
+           </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Image carousel -->
+<!-- <section class="hero is-small">
+  <div class="container">
+  </div>
+</section> -->
+<!-- End image carousel -->
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{chen2025can,
+  title={Can we Retrieve Everything All at Once? ARM: An Alignment-Oriented LLM-based Retrieval Method},
+  author={Chen, Peter Baile and Zhang, Yi and Cafarella, Michael and Roth, Dan},
+  journal={arXiv preprint arXiv:2501.18539},
+  year={2025}
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
